@@ -1,19 +1,20 @@
 $(document).ready(function(){
-    $('#form-Tarefa').on('submit', function(e) {
+    $('#form-tarefa').on('submit', function(e) {
         e.preventDefault();
 
         const nomeTarefa = $('#nome-tarefa').val().trim();
 
         if (nomeTarefa === "") {
-            alert("Por favor,insira o nome da tarefa")
+            alert("Por favor,insira o nome da tarefa");
             return;
         }
 
         const novaTarefa = $(`
-            <li style="display: none">
+            <li style="display: none;">
                 ${nomeTarefa}
-            </li>`);
-        $(novaTarefa).appendTo('#lista-tarefas').fadein();
+            </li>
+        `);
+        novaTarefa.appendTo('#lista-tarefas').fadeIn();
         $('#nome-tarefa').val('');
     })
 
