@@ -55,8 +55,6 @@ form button {
 
 ul {
     padding: 0;
-    display: flex;
-    align-items: center;
 }
 
 li {
@@ -66,7 +64,6 @@ li {
     cursor: pointer;
 }
 
-li.concluido {
+li .concluido {
     text-decoration: line-through;
-    color: #aaa;
 }

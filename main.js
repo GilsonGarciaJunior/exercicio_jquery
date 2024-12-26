@@ -1,20 +1,23 @@
 $(document).ready(function(){
-    $('form').on('submit', function(e) {
+    $('#form-Tarefa').on('submit', function(e) {
         e.preventDefault();
 
-        const nomeTarefa = $('#nome-tarefa').val();
-        const novaTarefa = $(`<ul style="display: none"></ul>`)
-        $(`
-            <li>
+        const nomeTarefa = $('#nome-tarefa').val().trim();
+
+        if (nomeTarefa === "") {
+            alert("Por favor,insira o nome da tarefa")
+            return;
+        }
+
+        const novaTarefa = $(`
+            <li style="display: none">
                 ${nomeTarefa}
-            </li>
-        `).appendTo(novaTarefa);
-        $(novaTarefa).appendTo('table');
-        $(novaTarefa).fadeIn();
+            </li>`);
+        $(novaTarefa).appendTo('#lista-tarefas').fadein();
         $('#nome-tarefa').val('');
     })
 
-    $('table').click('<li>', function (e) {
-        $('li').css('text-decoration', 'line-through');
-    })
+    $('#lista-tarefas').on('click', 'li', function () {
+        $(this).css('text-decoration', 'line-through');
+    });
 })
